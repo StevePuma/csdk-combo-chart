@@ -1,46 +1,134 @@
-# Getting Started with Create React App
+# Series Chart with Filters (React + TypeScript)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This React + TypeScript application demonstrates how to create a charting component that allows users to select metrics and filters using the Sisense Compose SDK. The component pulls data from a Sisense instance, displays KPIs, and visualizes data in a line chart, dynamically updating based on user-selected filters.
+
+## Features
+
+- **Interactive KPIs**: Display dynamic values for revenue, cost, and sales items.
+- **Customizable Metrics**: Users can select main and additional metrics from predefined options.
+- **Filters**: Apply filters based on demographic and product conditions like age range, gender, and condition.
+- **Date Range Picker**: Filter data within a custom date range.
+- **Responsive Line Chart**: Visualize filtered data through a customizable line chart.
+
+## Dependencies
+
+The project relies on the following dependencies:
+
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- **Material-UI (MUI)**: A popular React UI framework for styling components.
+- **Sisense Compose SDK**: Used to interact with the Sisense backend for querying data and rendering visualizations.
+
+## Installation Guide
+
+### Prerequisites
+
+- **Node.js** (v14 or later)
+- **npm** (v6 or later) or **yarn**
+- A **Sisense Compose SDK** account (you can sign up for a free trial [here](https://www.sisense.com/platform/compose-sdk-free-trial/)).
+
+### Installation Steps
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone <your-repository-url>
+   ```
+
+2. **Navigate to the project directory**:
+
+   ```bash
+   cd <your-project-directory>
+   ```
+
+3. **Install the dependencies**:
+
+   Run the following command to install all necessary packages:
+
+   ```bash
+   npm install
+   ```
+
+   or, if you're using yarn:
+
+   ```bash
+   yarn install
+   ```
+
+### Running the Application
+
+1. **Start the development server**:
+
+   ```bash
+   npm start
+   ```
+
+   or with yarn:
+
+   ```bash
+   yarn start
+   ```
+
+2. The app will run on `http://localhost:3000` by default.
+
+## Sisense Authentication Configuration
+
+To authenticate requests from the Sisense SDK, you need to provide your Sisense instance URL and API token in the context provider.
+
+1. **Locate the `index.tsx` file** in the root of the `src` directory.
+   
+2. **Update the `SisenseContextProvider`** with your Sisense instance details:
+
+   ```tsx
+   <SisenseContextProvider
+      url="https://YOUR_SISENSE_INSTANCE_URL" // Replace with your Sisense instance URL
+      token="YOUR_API_TOKEN"  // Replace with your Sisense API token
+   >
+     <App />
+   </SisenseContextProvider>
+   ```
+
+   If you're not a Sisense customer, you can request a free API token by signing up for the Sisense Compose SDK trial [here](https://www.sisense.com/platform/compose-sdk-free-trial/).
+
+## Project Structure
+
+```bash
+├── src
+│   ├── App.tsx         # Main app component
+│   ├── components      # Reusable components
+│   ├── index.tsx       # Entry point, Sisense context provider is set here
+│   ├── sample-ecommerce.ts  # Data model file for the app
+│   └── ...
+├── package.json        # Project dependencies
+└── tsconfig.json       # TypeScript configuration
+```
+
+## Key Files
+
+- **`index.tsx`**: Sets up the Sisense context provider for the entire app.
+- **`App.tsx`**: The main component that contains the charting and filtering logic.
+- **`sample-ecommerce.ts`**: Contains the data model definitions for the commerce metrics.
+
+## Troubleshooting
+
+1. **API Token Issues**: Ensure that your API token is valid and not expired. If you encounter authentication issues, verify that your token is correctly set in the `SisenseContextProvider`.
+
+2. **Sisense Instance URL**: Make sure that the URL to your Sisense instance is accurate and accessible from your environment.
+
+3. **Filter Data Not Loading**: If the filters are not loading, verify the dimensions and measures defined in `sample-ecommerce.ts` match the schema of your Sisense instance.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+- `npm start` - Runs the app in the development mode.
+- `npm run build` - Builds the app for production.
+- `npm test` - Launches the test runner.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## License
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project is licensed under the MIT License.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+To learn more about the Sisense Compose SDK, visit the [official documentation](https://sisense.dev/).
