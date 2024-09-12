@@ -35,7 +35,7 @@ The project relies on the following dependencies:
 1. **Clone the repository**:
 
    ```bash
-   git clone <your-repository-url>
+   git clone https://github.com/StevePuma/csdk-combo-chart.git
    ```
 
 2. **Navigate to the project directory**:
