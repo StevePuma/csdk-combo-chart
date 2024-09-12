@@ -1,5 +1,8 @@
 # Series Chart with Filters (React + TypeScript)
 
+![ComboChart](https://github.com/user-attachments/assets/47ae2993-73e9-4a86-8c5e-fb6dddf64c39)
+
+
 This React + TypeScript application demonstrates how to create a charting component that allows users to select metrics and filters using the Sisense Compose SDK. The component pulls data from a Sisense instance, displays KPIs, and visualizes data in a line chart, dynamically updating based on user-selected filters.
 
 ## Features
